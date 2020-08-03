@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Teaching and Learning for All</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href ="{% static 'home.css' %}">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="log_reg"> Sign In </a>
+            <a href="about" class = "login">Contact</a>
+            <a href="blog" class = "blog"> Blog</a>
+            <a href="account">myAccount</a>
+            <a href="library"> Subjects </a>
+            <a href="home" class="active">Home</a>
+        </div>
+    <br>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                    <img src="{% static 'teach.jpg' %}" style=" width:100%">
+                </div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                    <img src="{% static 'kosmos.png' %}" style=" margin-left: 150px; width:75%">
+                </div>
+            <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="{% static 'Unknown.jpg' %}" style="width:75%; margin-left: 150px;">
+        </div>
+        
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+    <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        <br>
+        <br>
+        <hr class ="line">
+        <br>
+        <br>
+            <form action="/search" method = "GET">
+            {% csrf_token %}
+                <div class = "text">
+                    <div class="wrapper" style= "margin-bottom: 100px;">
+                        <h4 style = "margin-top:15px; color: azure;">Subjects you want to learn </h4>
+                        <input type="text" class="input" style = "display: inline-block;" placeholder="Search..."><button class="searchbtn btn-outline-success my-2 my-sm-0" name ="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        <br>
+    <h1 style ="text-align: center;"> Welcome to Teaching and Learning for ALL</h1><br>
+        <p style = "padding: 25px 50px; margin-bottom: 100px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloribus ipsa quod harum explicabo, quo quasi, qui aut praesentium cupiditate consequatur temporibus vel dicta numquam sequi fugiat ea ipsam iusto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nam earum totam, provident fugit ullam rem, quam vero dignissimos exercitationem magni atque illum laborum iusto quidem distinctio eum quis numquam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi officiis doloremque fugit in recusandae velit aliquam, voluptate, repellendus incidunt cupiditate voluptas mollitia esse hic rem? Quasi cumque dicta totam voluptatem.</p>
+        <br>
+        <br>
+            <div style = "margin-left: 400px; padding: 50px;">
+                <br>
+                    <p> <i class='far fa-copyright'></i> 2020, TeachingAndLearningForAll.com, Inc. </p>
+                <br>
+            </div>
+        <script>
+            $(document).ready(function(){
+            
+                $('a.blog').click(function(){
+                    alert("Please Sign in or Register to access the Blog")
+                });
+            });
+
+
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; 
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1} 
+            slides[slideIndex-1].style.display = "block"; 
+            setTimeout(showSlides, 6000); // Change image every 2 seconds
+            }
+        </script>
+    </body>
+  </html>

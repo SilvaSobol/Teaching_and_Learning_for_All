@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Success</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" cr
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        {% load static %}
+        <link rel="stylesheet" href ="{% static 'profile.css' %}">
+        <style>
+            <textarea id ="desc" rows="5" cols="40"> </textarea>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              border-spacing: 10px;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd
+            }
+            div #yours{
+            background-color: rgb(204, 183, 183);
+            width: 300x;
+            height: 100px;
+            border: 1px solid rgba(12, 42, 99, 0.829) ;
+            overflow: scroll;
+          }
+            div #others{
+                background-color: gainsboro;
+                width: 300x;
+                height: 100px;
+                border: 1px solid rgba(12, 42, 99, 0.829) ;
+                overflow: scroll;
+            }
+
+          </style>
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/log_out">Log Out</a>
+            <a href="account" class="active">myAccount</a>
+            <a href="about">Contact</a>
+            <a href="blog"> Blog</a>
+            <a href="library"> Subjects </a>
+            <a href="home">Home</a>
+        </div>
+        <div class = "profile"> 
+            <div style = "display: inline-block; ">
+                <div class = "media">
+                    <img class = "rounded-circle account-img" src ="{% static 'profile.jpg' %}" alt="profile picture">
+                    <h2 style = "display: inline-block; vertical-align: top; margin-left: 50px;"> {{ user.first_name }} {{ user.last_name }} </h2>
+                </div>
+            </div> 
+            <br>
+            <br>  
+            <p style = "font-weight: bold;" > Want to learn more about: </p>
+            <p style = "font-style: oblique" > Music  / Art  /  English </p><br>
+            <p style = "font-weight: bold;"> Can tutor subjects in: </p>
+            <p style = "font-style: oblique;"> Chess  /  Spanish  / Astronomy </p>
+        </div>
+        <!-- <button type ="submit" class="btn" style = "text-decoration: none;"><a href="/blog"> BLOG</a></button> -->
+        <!-- <button type ="submit" class="btn" style = "text-decoration: none;"><a href="/log_out">LOG OUT</a></button> -->
+        <div class ="class">
+            <hr class ="line" style = "border: 10px solid lightblue; border-radius: 5px;width: 100%;">
+            <h3>ADD THE CLASS TO TUTOR </h3>
+            <br>
+            <br>
+            <div class = "form" style="vertical-align: top; display: inline-block;">
+                <form action="/create_course" method ="POST">
+                    {% csrf_token %}
+                        {% if messages %}
+                        <ul class="messages">    
+                            {% for message in messages %}    
+                                <li class="text-danger text-small">{{ message }}</li>    
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    <label for="name"> CLASS NAME</label><br>
+                    <input type="text" style="width: 200px;" class= "name" name="name"><br>
+                    <br>
+                    <label for="description">DESCRIPTION </label><br>
+                    <input type="text" style="width: 200px;"  name="desc"><br>
+                    <button type ="submit" class="btn">Create a new class </button><br>
+                </form>
+            </div>  
+            <dir class="loop">
+                <br>
+                <table>
+                    <tr>
+                    <th class ="fixed"> Class Name  </th>
+                    <th class ="fixed">Description </th>
+                    <th class ="fixed"> Tutored By</th>
+                    <th class ="fixed">Date Added </th>
+                    <th class = "fixed"> Action </th>
+                    </tr>
+                    <tr>
+                    {% for a_class in all_classes %}
+                        <td>{{a_class.name}} </td>
+                        <td>{{a_class.desc}}</td>
+                        <td>{{a_class.tutor.first_name}} {{a_class.tutor.last_name}}</td>
+                        <td>{{user.created_at}}</td>
+                        <td>
+                        <a href="/courses/{{a_class.id}}/destroy" style = "color:dodgerblue; text-decoration: none;" >Remove | </a>
+                        <a href="/class/{{a_class.id}}" style = "color:dodgerblue; text-decoration: none;" >View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </dir> 
+           <br>
+           <br>
+        </div>
+        <div style = "margin-left: 400px; padding: 50px;">
+            <br>
+            <p><i class='far fa-copyright'></i> 2020, TeachingAndLearningForAll.com, Inc. </p>
+            <br>
+        </div>
+    </body>
+</html>

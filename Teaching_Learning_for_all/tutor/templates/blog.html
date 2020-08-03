@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Comments</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href ="{% static 'blog.css'%}">
+    <style>
+        a:link, a:visited {
+            background-color: orangered;
+            color: white;
+            /* padding: 5px 15px; */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 7px;
+            width: 120px;
+            font-size: small;   
+        }
+        
+        a:hover, a:active {
+            background-color: red;
+        }
+        .num{
+            color: orangered;
+            font-size: 14px;
+            font-style: italic;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="log_reg"> Sign In </a>
+            <a href="account">myAccount</a>
+            <a href="about">Contact</a>
+            <a href="blog" style = "background-color: skyblue;"> Blog</a>
+            <a href="library"> Subjects</a>
+            <a href="home">Home</a>
+        </div>
+        <a id ="none" href="/log_out">LOG OUT</a>
+        <div class="header">
+            <h2> Welcome to {{user.first_name}}'s blog</h2>
+        </div>
+        <div class="row">
+            <div class="card">
+                <h3>POST A MESSAGE</h3>
+                <form action="/message" method = "POST">
+                    {% csrf_token %}
+                    <label for="content"></label><br>
+                    <input type="text" name = "message" style="width: 950px; height: 60px;" class= "form-control" placeholder ="your message here..."><br>
+                    <button type ="submit" class="btn">POST</button><br>
+                </form>
+            </div>
+            <br><br>
+            <div class ="wrapper">
+                <div class='block'>
+                    <blockquote class="blockquote">
+                        {% for post in wall_messages %}
+                            <p class ="color"> {{post.message}}</p>
+                            <footer class="blockquote-footer"> {{post.creator.first_name}} {{post.creator.last_name}}, {{ post.created_at}}</footer><br><br>
+                            {% if request.session.userid == post.creator.id %} 
+                            <a href="/delete_post/{{post.id}}">Delete</a>
+                            {% endif %}
+                            {% if request.session.userid != post.creator.id %}    
+                            <a  class ="like" name ='like' href="/like/{{post.id}}">Like</a><br>
+                            <span style='font-size:25px;'>&#128140;</span> 
+                            <p class="num" style="text-align: center">{{ post.user_likes.count }}</p>
+                            {% endif %}
+                            <br><br>
+                            <div class = "comments">
+                                <div class="card w-75">
+                                    {% for comment in post.post_comments.all %}  
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{comment.creator.first_name}} {{comment.creator.last_name}} ~ {{comment.creator.created_at}}  </h5>
+                                        <p class="card-text">{{comment.comment}}</p><br><br>
+                                        {% if request.session.userid == comment.creator.id %}
+                                        <a href="/delete/{{comment.id}}" class="btn btn-primary" style="width: 150px;">delete a comment</a>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>    
+                                <form action="/add_comment/{{post.id}}" method = "POST">
+                                    {% csrf_token %}
+                                    <label for="content">Comment</label><br>
+                                    <input type="text" name = "comment" style="width: 700px; height: 60px;" class= "like" placeholder ="your comment here...">
+                                    <br><br>
+                                    <button type ="submit" class="btn_comment">Comment</button><br>
+                                    <br><br>
+                                </form>
+                            </div>    
+                            <br><br>
+                            <hr>
+                        {% endfor %}
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
