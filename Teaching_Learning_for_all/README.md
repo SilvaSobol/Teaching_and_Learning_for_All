@@ -30,3 +30,6 @@ Account page displays user's account information and let's user create classes t
 
 The Blog page is created to help users interact and exchange messages.
 ![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/theBlog.jpg)
+
+And the final page has contact information along with embedded GOOGLE MAP API for location and directions. 
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/Contact%20Page.jpg) 
