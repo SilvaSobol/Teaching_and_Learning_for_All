@@ -10,4 +10,4 @@ Application consists of 5 pages:
     * CONTACT 
 
 
-![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](TutorNow1.jpeg,TutorNow2.jpeg,TutorNow3.jpeg"Teaching and Learning for All")
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](TutorNow1.jpg)
