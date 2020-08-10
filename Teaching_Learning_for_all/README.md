@@ -18,3 +18,7 @@ Application consists of 5 pages:
 
 ## Home Page carousel image three
 ![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/TutorNow3.jpg)
+
+After searching the subjects user lands on a recommended subjects' page to sign up for the classes. 
+
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/SubjectsPage.jpg)
