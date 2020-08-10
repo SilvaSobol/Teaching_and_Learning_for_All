@@ -1,3 +1,13 @@
 # Welcome to TutorNow application
 
-This is an application for users to exchange lessons on various subjects. Users can create private accounts and register for classes.
+This is an application for users to exchange lessons on various subjects. Users can create private accounts and register for classes. 
+
+Application consists of 5 pages: 
+    * HOME 
+    * SUBJECT
+    * ACCOUNT
+    * BLOG
+    * CONTACT 
+
+
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](TutorNow1.jpeg,TutorNow2.jpeg,TutorNow3.jpeg"Teaching and Learning for All")
