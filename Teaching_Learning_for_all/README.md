@@ -21,4 +21,4 @@ Application consists of 5 pages:
 
 After searching the subjects user lands on a recommended subjects' page to sign up for the classes. 
 
-![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/SubjectsPage.jpg)
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/Subjects%20Page.jpg)
