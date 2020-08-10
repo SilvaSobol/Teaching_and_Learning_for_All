@@ -10,7 +10,7 @@ Application consists of 5 pages:
 + CONTACT 
 
 Home Page carousel image one
-![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](Teaching_Learning_for_all/tutor/images/TutorNow1.jpg)
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](/Teaching_Learning_for_all/tutor/images/TutorNow1.jpg)
 
 
 Home Page carousel image two
