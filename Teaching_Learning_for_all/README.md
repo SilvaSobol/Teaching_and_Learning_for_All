@@ -26,4 +26,4 @@ The login and registration page is secured with BCrypt and has a HASHed password
 ![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/login.jpg)
 
 Account page displays user's account information and let's user create classes they would tutor. 
-![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/myAccount.jpg)
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/myAccount%20Page.jpg)
