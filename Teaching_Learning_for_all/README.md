@@ -24,3 +24,6 @@ After searching the subjects user lands on recommended subjects' page to sign up
 
 The login and registration page is secured with BCrypt and has a HASHed password feature to protect user's information. It also performs validation to avoid incorrect data entry.
 ![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/login.jpg)
+
+Account page displays user's account information and let's user create classes they would tutor. 
+![The home page features a navbar, image carousel slideshow and a search bar to filter subjects users are interested in](tutor/images/myAccount.jpg)
