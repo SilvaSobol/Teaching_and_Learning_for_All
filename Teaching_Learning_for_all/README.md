@@ -1,6 +1,6 @@
 # Welcome to TutorNow application
 
-It is an application particularly designed for users to tutor exchange classes on various subjects Users can create private accounts and register for classes. 
+It is an application particularly designed for users to tutor/exchange classes on various subjects Users can create private accounts and register for classes. 
 
 Application consists of 6 pages: 
 + HOME 
